@@ -1,9 +1,7 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  district: MyString
+  name: Erste Einrichtung
+  district: Lichtenberg
 
 two:
-  name: MyString
-  district: MyString
+  name: Zweite Einrichtung
+  district: Mitte

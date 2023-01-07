@@ -1,0 +1,11 @@
+one:
+  facility: one
+  permitted_genders:
+    - male
+    - female
+    - diverse
+
+two:
+  facility: two
+  permitted_genders:
+    - female
