@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_07_190252) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_07_193500) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "beds", force: :cascade do |t|
     t.bigint "facility_id", null: false
-    t.string "permitted_genders", array: true
+    t.string "permitted_genders", null: false, array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["facility_id"], name: "index_beds_on_facility_id"
   end
 
   create_table "facilities", force: :cascade do |t|
-    t.string "name"
-    t.string "district"
+    t.string "name", null: false
+    t.string "district", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
