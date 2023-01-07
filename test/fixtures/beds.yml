@@ -9,3 +9,8 @@ two:
   facility: two
   permitted_genders:
     - female
+
+three:
+  facility: one
+  permitted_genders:
+    - male

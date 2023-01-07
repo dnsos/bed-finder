@@ -1,0 +1,22 @@
+<div id="<%= dom_id booking %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Bed:</strong>
+    <%= booking.bed_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Checkin date:</strong>
+    <%= booking.checkin_date %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Checkout date:</strong>
+    <%= booking.checkout_date %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this booking", booking, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this booking', edit_booking_path(booking), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

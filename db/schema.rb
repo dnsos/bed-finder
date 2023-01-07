@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_07_193500) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_07_194405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_193500) do
     t.index ["facility_id"], name: "index_beds_on_facility_id"
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "bed_id", null: false
+    t.date "checkin_date", null: false
+    t.date "checkout_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bed_id", "checkin_date"], name: "index_bookings_on_bed_id_and_checkin_date", unique: true
+    t.index ["bed_id", "checkout_date"], name: "index_bookings_on_bed_id_and_checkout_date", unique: true
+    t.index ["bed_id"], name: "index_bookings_on_bed_id"
+    t.check_constraint "checkin_date < checkout_date", name: "checkin_before_checkout"
+  end
+
   create_table "facilities", force: :cascade do |t|
     t.string "name", null: false
     t.string "district", null: false
@@ -30,4 +42,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_193500) do
   end
 
   add_foreign_key "beds", "facilities"
+  add_foreign_key "bookings", "beds"
 end
