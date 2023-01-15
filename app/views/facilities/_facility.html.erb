@@ -1,17 +1,11 @@
-<div id="<%= dom_id facility %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= facility.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">District:</strong>
+<div id="<%= dom_id facility %>" class="mt-8">
+  <%= link_to facility.name, facility, class: "text-3xl font-normale underline" %>
+  <p class="mt-3 text-xl text-gray-600">
     <%= facility.district %>
   </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this facility", facility, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this facility', edit_facility_path(facility), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <%# if action_name != "show" %>
+    <%# link_to "Show this facility", facility, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%# link_to 'Edit this facility', edit_facility_path(facility), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%# end %>
 </div>

@@ -1,0 +1,7 @@
+<div class="block">
+  <%= turbo_frame_tag 'occupancies' do %>
+    <%= link_to 'Abbrechen', facility_occupancies_path(@facility), class: 'block mb-6 underline' %>
+    <h1 class="text-3xl font-bold mb-5">Bett buchen (<%= Date.today.strftime('%d.%m.%Y') %>)</h1>
+    <%= render "form", occupancy: @occupancy %>
+  <% end %>
+</div>

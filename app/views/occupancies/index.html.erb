@@ -1,0 +1,20 @@
+<div class="w-full block">
+  <%= turbo_frame_tag 'occupancies' do %>
+    <div class="w-full flex gap-4 justify-between">
+      <h1 class="text-3xl font-bold">Belegte Betten heute (<%= Date.today.strftime('%d.%m.%Y') %>)</h1>
+      <%= link_to 'Neue Belegung', new_facility_occupancy_path(@facility), class: 'bg-black text-white border p-2' %>
+    </div>
+    <ul class="mt-8">
+      <% @occupancies.each do |occupancy| %>
+        <li class="w-full mt-6 text-xl flex gap-4 justify-between border-t border-gray-300 py-4">
+          <div>
+            <%= occupancy.bed.id_and_permitted_genders %>
+            <br />
+            <span class="text-base text-gray-600">Checkin: vor <%= distance_of_time_in_words occupancy.started_at, Time.now %></span>
+          </div>
+          <%= button_to 'Auschecken', terminate_facility_occupancy_path(@facility, occupancy), method: :patch, class: 'border border-black p-1', data: { turbo_confirm: 'Möchtest du diese Belegung wirklich auschecken?' } %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

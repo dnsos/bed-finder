@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :bookings
-  resources :facilities
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'facilities#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :facilities do
+    resources :occupancies, only: %i[index new create] do
+      member { patch :terminate }
+    end
+  end
 end
