@@ -1,9 +1,0 @@
-one:
-  bed: one
-  checkin_date: 2023-01-07
-  checkout_date: 2023-01-08
-
-two:
-  bed: two
-  checkin_date: 2023-01-07
-  checkout_date: 2023-01-08
