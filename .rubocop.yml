@@ -1,0 +1,15 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "Gemfile"
+    - "bin/*"
+    - "config/puma.rb"
+    - "config/environments/**.rb"
+
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
