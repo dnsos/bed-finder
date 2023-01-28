@@ -1,0 +1,7 @@
+<%= turbo_stream.update "#{dom_id(@facility)}_availabilities" do %>
+  <%= render Facility::AvailabilityStatsComponent.new(label: "Freie Betten (#{@beds_count} insgesamt)") do |component| %>
+    <%= component.with_availability_stat(label: 'Für Männer', number: @men_count) %>
+    <%= component.with_availability_stat(label: 'Für Frauen', number: @women_count) %>
+    <%= component.with_availability_stat(label: 'Für Diverse', number: @diverse_count) %>
+  <% end %>
+<% end %>

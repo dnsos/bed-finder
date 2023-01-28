@@ -1,11 +1,12 @@
-<div id="<%= dom_id facility %>" class="mt-8">
-  <%= link_to facility.name, facility, class: "text-3xl font-normale underline" %>
-  <p class="mt-3 text-xl text-gray-600">
-    <%= facility.district %>
-  </p>
+<div id="<%= dom_id facility %>" class="w-full bg-gray-100 p-3 grid gap-2 grid-cols-[5fr,3fr]">
+  <div>
+    <%= link_to facility.name, facility, class: "text-3xl font-normale underline" %>
+    <p class="mt-3 text-xl text-gray-600">
+      <%= facility.district %>
+    </p>
+  </div>
 
-  <%# if action_name != "show" %>
-    <%# link_to "Show this facility", facility, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%# link_to 'Edit this facility', edit_facility_path(facility), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-  <%# end %>
+  <div>
+    <%= turbo_frame_tag "#{dom_id(facility)}_availabilities", src: facility_availabilities_path(facility) %>
+  </div>
 </div>

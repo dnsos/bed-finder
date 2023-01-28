@@ -1,0 +1,9 @@
+<li class="w-full mt-6 text-xl flex gap-4 justify-between border-t border-gray-300 py-4">
+  <div>
+    <strong>Bett #<%= occupancy.bed_id %></strong> 
+    (<%= occupancy.bed.permitted_genders.join(', ') %>)
+    <br />
+    <span class="text-base text-gray-600">Checkin: <%= occupancy.duration.begin.in_time_zone('Europe/Berlin') %></span>
+  </div>
+  <%= button_to 'Auschecken', terminate_facility_occupancy_path(@facility, occupancy), method: :patch, class: 'border border-black p-1', data: { turbo_confirm: 'Möchtest du diese Belegung wirklich auschecken?' } %>
+</li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_165536) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_170721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "plpgsql"
@@ -32,14 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_165536) do
 
   create_table "occupancies", force: :cascade do |t|
     t.bigint "bed_id", null: false
-    t.datetime "started_at", null: false
-    t.datetime "terminated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.tsrange "duration"
+    t.tsrange "duration", null: false
     t.index ["bed_id", "duration"], name: "bed_id_duration_exclusive_range", using: :gist
     t.index ["bed_id"], name: "index_occupancies_on_bed_id"
-    t.check_constraint "started_at < terminated_at", name: "started_at_before_terminated_at"
   end
 
   add_foreign_key "beds", "facilities"

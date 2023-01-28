@@ -1,0 +1,10 @@
+<%= content_tag :div, **@args do %>
+  <p class="w-full pb-3 border-b border-gray-200 text-lg">
+    <%= @label %>
+  </p>
+  <div class="mt-3 grid gap-2 grid-cols-3">
+    <% availability_stats.each do |availability_stat| %>
+      <%= availability_stat %>
+    <% end %>
+  </div>
+<% end %>
