@@ -16,7 +16,7 @@ module BedFinder
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.time_zone = 'Europe/Berlin'
+    config.time_zone = "Europe/Berlin"
     # ActiveRecord::Base.time_zone_aware_types += [:tsrange]
   end
 end

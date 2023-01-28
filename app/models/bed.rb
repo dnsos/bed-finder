@@ -5,6 +5,6 @@ class Bed < ApplicationRecord
   validates :permitted_genders, presence: true
 
   def id_and_permitted_genders
-    "##{id}: #{permitted_genders.join(', ')}"
+    "##{id}: #{permitted_genders.join(", ")}"
   end
 end
