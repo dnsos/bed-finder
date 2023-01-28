@@ -7,7 +7,7 @@ module Occupancy::Rangeable
  where("DATE_TRUNC('day', lower(duration)) = ? OR DATE_TRUNC('day', lower(duration)) = ?", Date.yesterday, Date.today) }
   end
 
-  def terminate(end_time = Time.now)
+  def terminate(end_time = Time.zone.now)
     update(duration: duration.begin...end_time)
   end
 end

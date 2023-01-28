@@ -1,4 +1,6 @@
-require: standard
+require:
+  - standard
+  - rubocop-rails
 
 inherit_gem: 
   syntax_tree: config/rubocop.yml
@@ -7,8 +9,4 @@ inherit_gem:
 AllCops:
   NewCops: enable
   Exclude:
-    - "db/schema.rb"
-    - "Gemfile"
-    - "bin/*"
-    - "config/puma.rb"
-    - "config/environments/**.rb"
+    - vendor/**/*

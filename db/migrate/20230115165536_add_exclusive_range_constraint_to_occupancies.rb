@@ -1,6 +1,6 @@
 class AddExclusiveRangeConstraintToOccupancies < ActiveRecord::Migration[7.0]
   def up
-    execute <<-SQL
+    execute <<-SQL.squish
       CREATE EXTENSION btree_gist;
 
       ALTER TABLE occupancies
@@ -10,7 +10,7 @@ class AddExclusiveRangeConstraintToOccupancies < ActiveRecord::Migration[7.0]
   end
 
   def down
-    execute <<-SQL
+    execute <<-SQL.squish
       DROP CONSTRAINT bed_id_duration_exclusive_range;
       DROP EXTENSION btree_gist;
     SQL

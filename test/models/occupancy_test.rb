@@ -6,14 +6,14 @@ class OccupancyTest < ActiveSupport::TestCase
   end
 
   test "allows occupancy with valid attributes" do
-    occupancy = Occupancy.new bed: @bed, started_at: Time.now
+    occupancy = Occupancy.new bed: @bed, started_at: Time.zone.now
 
     occupancy.valid?
     assert_empty occupancy.errors
   end
 
   test "rejects occupancy with invalid terminated_at" do
-    now = Time.now
+    now = Time.zone.now
     occupancy = Occupancy.new bed: @bed, started_at: now, terminated_at: now - 10.minutes
 
     occupancy.valid?

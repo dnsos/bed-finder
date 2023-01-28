@@ -61,6 +61,7 @@ group :development, :test do
   # Ruby code style
   gem "rubocop", require: false
   gem "standard"
+  gem "rubocop-rails", require: false
   gem "syntax_tree"
 end
 
