@@ -5,9 +5,9 @@
 <%= turbo_stream.prepend 'occupancies', partial: 'occupancies/occupancy', locals: { occupancy: @occupancy } %>
 
 <%= turbo_stream.update "#{dom_id(@facility)}_availabilities" do %>
-  <%= render Facility::AvailabilityStatsComponent.new(label: "Freie Betten (#{@beds_count} insgesamt)") do |component| %>
-    <%= component.with_availability_stat(label: 'Für Männer', number: @available_beds_men.count - @men_to_deduct) %>
-    <%= component.with_availability_stat(label: 'Für Frauen', number: @available_beds_women.count - @women_to_deduct) %>
-    <%= component.with_availability_stat(label: 'Für Diverse', number: @available_beds_diverse.count - @diverse_to_deduct) %>
+  <%= render Facility::AvailabilityStatsComponent.new(label: "Freie Betten (#{@vacancy_report[:beds_count]} insgesamt)") do |component| %>
+    <%= component.with_availability_stat(label: 'Für Männer', number: @vacancy_report[:genders]["männlich"] || 0) %>
+    <%= component.with_availability_stat(label: 'Für Frauen', number: @vacancy_report[:genders]["weiblich"] || 0) %>
+    <%= component.with_availability_stat(label: 'Für Diverse', number: @vacancy_report[:genders]["divers"] || 0) %>
   <% end %>
 <% end %>
