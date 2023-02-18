@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_170721) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_18_161834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_170721) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["facility_id"], name: "index_beds_on_facility_id"
+  end
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "unique_names", unique: true
   end
 
   create_table "facilities", force: :cascade do |t|
