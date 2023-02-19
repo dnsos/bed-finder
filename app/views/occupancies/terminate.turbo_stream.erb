@@ -1,3 +1,5 @@
+<%= turbo_stream.remove dom_id(@occupancy) %>
+
 <%= turbo_stream.update "#{dom_id(@facility)}_vacancies" do %>
   <%= render Facility::AvailabilityStatsComponent.new(label: "Freie Betten (#{@vacancy_report[:beds_count]} insgesamt)") do |component| %>
     <%= component.with_availability_stat(label: 'Für Männer', number: @vacancy_report[:genders]["männlich"] || 0) %>
