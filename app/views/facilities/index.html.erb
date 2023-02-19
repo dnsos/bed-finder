@@ -4,7 +4,15 @@
     <%# link_to 'New facility', new_facility_path, class: "" %>
   </div>
 
-  <div id="facilities" class="min-w-full mt-8 grid gap-8">
-    <%= render @facilities %>
-  </div>
+  <%= form_with url: "", method: :get, data: { turbo_frame: "facilities", turbo_action: "advance", controller: "filter" }, class: "w-full flex gap-2 flex-wrap" do |form| %>
+    <%= form.collection_check_boxes(:district, District.all, :id, :name, include_hidden: false) do |checkbox| %>
+      <%= checkbox.label(class: "flex gap-2 items-center", data: { filter_target: "checkbox" }) { checkbox.check_box + checkbox.text } %>
+    <% end %>
+  <% end %>
+
+  <%= turbo_frame_tag "facilities" do %>
+    <div id="facilities" class="min-w-full mt-8 grid gap-8">
+      <%= render @facilities %>
+    </div>
+  <% end %>
 </div>
