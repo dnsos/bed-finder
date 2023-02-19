@@ -1,7 +1,7 @@
 class VacanciesController < ApplicationController
-  before_action :set_facility, only: %i[show]
+  before_action :set_facility, only: %i[index]
 
-  def show
+  def index
     @vacancy_report = VacancyReport.new(facility: @facility).aggregate
   end
 
