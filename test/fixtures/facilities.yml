@@ -1,7 +1,7 @@
 one:
-  name: Erste Einrichtung
-  district: Lichtenberg
+  name: "Erste Einrichtung"
+  district: neukoelln
 
 two:
-  name: Zweite Einrichtung
-  district: Mitte
+  name: "Zweite Einrichtung"
+  district: mitte
