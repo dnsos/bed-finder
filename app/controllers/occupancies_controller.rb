@@ -1,16 +1,11 @@
 class OccupanciesController < ApplicationController
-  before_action :set_facility,
-                only: %i[index new create terminate availabilities]
+  before_action :set_facility, only: %i[index new create terminate]
   before_action :set_beds, only: %i[index new terminate]
   before_action :set_occupancies, only: %i[index new terminate]
   before_action :set_available_beds, only: %i[new terminate]
   before_action :set_occupancy, only: %i[terminate]
 
   def index
-  end
-
-  def availabilities
-    @vacancy_report = VacancyReport.new(facility: @facility).aggregate
   end
 
   def show

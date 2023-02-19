@@ -2,8 +2,6 @@
   <%= link_to 'Zurück zu allen Einrichtungen', facilities_path, class: 'underline mb-8 block' %>
   <div class="mb-12 bg-gray-100 p-4">
     <%= render @facility %>
-
-    <%# turbo_frame_tag "#{dom_id(@facility)}_availabilities", src: facility_availabilities_path(@facility) %>
   </div>
 
   <%= turbo_frame_tag 'occupancies-page', src: facility_occupancies_path(@facility) %>

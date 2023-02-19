@@ -4,7 +4,7 @@
 
 <%= turbo_stream.prepend 'occupancies', partial: 'occupancies/occupancy', locals: { occupancy: @occupancy } %>
 
-<%= turbo_stream.update "#{dom_id(@facility)}_availabilities" do %>
+<%= turbo_stream.update "#{dom_id(@facility)}_vacancies" do %>
   <%= render Facility::AvailabilityStatsComponent.new(label: "Freie Betten (#{@vacancy_report[:beds_count]} insgesamt)") do |component| %>
     <%= component.with_availability_stat(label: 'Für Männer', number: @vacancy_report[:genders]["männlich"] || 0) %>
     <%= component.with_availability_stat(label: 'Für Frauen', number: @vacancy_report[:genders]["weiblich"] || 0) %>
