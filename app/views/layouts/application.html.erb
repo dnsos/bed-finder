@@ -15,5 +15,15 @@
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
+
+    <dialog id="turbo-confirm" class="p-5 shadow-lg">
+      <form method="dialog">
+        <p>Bist du sicher?</p>
+        <div class="mt-6 flex gap-x-3">
+          <button value="cancel" class="p-2 border border-gray-300">Abbrechen</button>
+          <button value="confirm" class="p-2 bg-gray-900 text-white">Bestätigen</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
