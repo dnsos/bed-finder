@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_133734) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_140130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gist"
   enable_extension "plpgsql"
@@ -35,7 +35,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_133734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "district_id"
+    t.bigint "user_id"
     t.index ["district_id"], name: "index_facilities_on_district_id"
+    t.index ["user_id"], name: "index_facilities_on_user_id"
   end
 
   create_table "occupancies", force: :cascade do |t|
@@ -62,5 +64,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_133734) do
 
   add_foreign_key "beds", "facilities"
   add_foreign_key "facilities", "districts"
+  add_foreign_key "facilities", "users"
   add_foreign_key "occupancies", "beds"
 end
