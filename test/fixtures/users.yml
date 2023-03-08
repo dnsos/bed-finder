@@ -1,0 +1,7 @@
+alice:
+  email: alice@user.com
+  admin: true
+
+bob:
+  email: bob@user.com
+  admin: false

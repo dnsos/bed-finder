@@ -54,6 +54,10 @@ gem "bootsnap", require: false
 # Component-based UIs
 gem "view_component"
 
+# Authentication and authorization
+gem "devise", "~> 4.9"
+gem "pundit", "~> 2.3"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
