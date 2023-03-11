@@ -36,6 +36,8 @@ class OccupanciesController < ApplicationController
   end
 
   def terminate
+    authorize @facility, :administrate?
+
     respond_to do |format|
       @occupancy.terminate
 
