@@ -13,11 +13,14 @@ class OccupanciesController < ApplicationController
 
   def new
     @occupancy = Occupancy.new
+    authorize @facility, :administrate?
   end
 
   def create
     @occupancy = Occupancy.new(occupancy_params)
     @occupancy.duration = Time.zone.now...Float::INFINITY
+
+    authorize @occupancy
 
     respond_to do |format|
       if @occupancy.save
