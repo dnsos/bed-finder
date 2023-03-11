@@ -1,5 +1,6 @@
 class OccupanciesController < ApplicationController
-  before_action :set_facility, only: %i[index new create terminate]
+  before_action :set_facility
+  before_action :authorize_user
   before_action :set_beds, only: %i[index new terminate]
   before_action :set_occupancies, only: %i[index new terminate]
   before_action :set_available_beds, only: %i[new terminate]
@@ -10,14 +11,11 @@ class OccupanciesController < ApplicationController
 
   def new
     @occupancy = Occupancy.new
-    authorize @facility, :administrate?
   end
 
   def create
     @occupancy = Occupancy.new(occupancy_params)
     @occupancy.duration = Time.zone.now...Float::INFINITY
-
-    authorize @occupancy
 
     respond_to do |format|
       if @occupancy.save
@@ -36,8 +34,6 @@ class OccupanciesController < ApplicationController
   end
 
   def terminate
-    authorize @facility, :administrate?
-
     respond_to do |format|
       @occupancy.terminate
 
@@ -81,5 +77,9 @@ class OccupanciesController < ApplicationController
 
   def occupancy_params
     params.require(:occupancy).permit(:bed_id)
+  end
+
+  def authorize_user
+    authorize @facility, :administrate?
   end
 end

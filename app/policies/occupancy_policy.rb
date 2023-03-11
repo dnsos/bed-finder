@@ -6,9 +6,9 @@ class OccupancyPolicy < ApplicationPolicy
     @occupancy = occupancy
   end
 
-  def create?
-    user.present? && occupancy.bed.facility.user == user
-  end
+  # def create?
+  #   user.present? && occupancy.bed.facility.user == user
+  # end
 
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
