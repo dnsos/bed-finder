@@ -8,9 +8,6 @@ class OccupanciesController < ApplicationController
   def index
   end
 
-  def show
-  end
-
   def new
     @occupancy = Occupancy.new
     authorize @facility, :administrate?
