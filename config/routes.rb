@@ -15,6 +15,6 @@ Rails.application.routes.draw do
       member { patch :terminate }
     end
   end
-  
+
   devise_for :users
 end

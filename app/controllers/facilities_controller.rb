@@ -41,7 +41,7 @@ class FacilitiesController < ApplicationController
       if @facility.save
         format.html do
           redirect_to facility_url(@facility),
-                      notice: "Facility was successfully created."
+            notice: "Facility was successfully created."
         end
         format.json { render :show, status: :created, location: @facility }
       else
@@ -59,7 +59,7 @@ class FacilitiesController < ApplicationController
       if @facility.update(facility_params)
         format.html do
           redirect_to facility_url(@facility),
-                      notice: "Facility was successfully updated."
+            notice: "Facility was successfully updated."
         end
         format.json { render :show, status: :ok, location: @facility }
       else
@@ -78,7 +78,7 @@ class FacilitiesController < ApplicationController
     respond_to do |format|
       format.html do
         redirect_to facilities_url,
-                    notice: "Facility was successfully destroyed."
+          notice: "Facility was successfully destroyed."
       end
       format.json { head :no_content }
     end

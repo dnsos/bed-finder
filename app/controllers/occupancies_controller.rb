@@ -25,7 +25,7 @@ class OccupanciesController < ApplicationController
 
         format.html do
           redirect_to facility_occupancies_url(@facility),
-                      notice: "Occupancy was successfully created."
+            notice: "Occupancy was successfully created."
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class OccupanciesController < ApplicationController
 
       format.html do
         redirect_to facility_occupancies_url(@facility),
-                    notice: "Occupancy was successfully terminated."
+          notice: "Occupancy was successfully terminated."
       end
     end
   end
