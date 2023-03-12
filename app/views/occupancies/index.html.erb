@@ -1,15 +1,13 @@
 <div class="w-full block">
   <%= turbo_frame_tag 'occupancies-page' do %>
-    <% if policy(@facility).administrate? %>
-      <%= turbo_frame_tag 'new-occupancy' do %>
-        <%= link_to 'Neue Belegung', new_facility_occupancy_path(@facility), class: 'bg-black text-white border p-2' %>
-      <% end %>
-      <h1 class="mt-8 text-3xl font-bold">Belegte Betten</h1>
-      <ul class="mt-8">
-        <%= turbo_frame_tag 'occupancies' do %>
-          <%= render @occupancies %>
-        <% end %>
-      </ul>
+    <%= turbo_frame_tag 'new-occupancy' do %>
+      <%= link_to 'Neue Belegung', new_facility_occupancy_path(@facility), class: 'bg-black text-white border p-2' %>
     <% end %>
+    <h1 class="mt-8 text-3xl font-bold">Belegte Betten</h1>
+    <ul class="mt-8">
+      <%= turbo_frame_tag 'occupancies' do %>
+        <%= render @occupancies %>
+      <% end %>
+    </ul>
   <% end %>
 </div>
