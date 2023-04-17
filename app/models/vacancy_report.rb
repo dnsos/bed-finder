@@ -17,7 +17,7 @@ class VacancyReport
 
     genders_tally = array_with_all_permitted_genders.tally
 
-    { beds_count: vacant_beds.count, genders: genders_tally }
+    {beds_count: vacant_beds.count, genders: genders_tally}
   end
 
   def vacant_beds

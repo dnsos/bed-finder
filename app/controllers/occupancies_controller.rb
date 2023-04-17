@@ -1,14 +1,12 @@
 class OccupanciesController < ApplicationController
-  before_action :set_facility, only: %i[index new create terminate]
+  before_action :set_facility
+  before_action :authorize_user
   before_action :set_beds, only: %i[index new terminate]
   before_action :set_occupancies, only: %i[index new terminate]
   before_action :set_available_beds, only: %i[new terminate]
   before_action :set_occupancy, only: %i[terminate]
 
   def index
-  end
-
-  def show
   end
 
   def new
@@ -27,7 +25,7 @@ class OccupanciesController < ApplicationController
 
         format.html do
           redirect_to facility_occupancies_url(@facility),
-                      notice: "Occupancy was successfully created."
+            notice: "Occupancy was successfully created."
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +43,7 @@ class OccupanciesController < ApplicationController
 
       format.html do
         redirect_to facility_occupancies_url(@facility),
-                    notice: "Occupancy was successfully terminated."
+          notice: "Occupancy was successfully terminated."
       end
     end
   end
@@ -79,5 +77,9 @@ class OccupanciesController < ApplicationController
 
   def occupancy_params
     params.require(:occupancy).permit(:bed_id)
+  end
+
+  def authorize_user
+    authorize @facility, :administrate?
   end
 end

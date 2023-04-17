@@ -4,5 +4,7 @@
     <%= render @facility %>
   </div>
 
-  <%= turbo_frame_tag 'occupancies-page', src: facility_occupancies_path(@facility) %>
+  <% if policy(@facility).administrate? %>
+    <%= turbo_frame_tag 'occupancies-page', src: facility_occupancies_path(@facility) %>
+  <% end %>
 </div>

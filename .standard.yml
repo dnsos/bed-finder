@@ -1,0 +1,6 @@
+extend_config:
+  - .standard_rubocop_extensions.yml
+
+ignore:
+  - 'db/schema.rb'
+  - 'vendor/**/*'
